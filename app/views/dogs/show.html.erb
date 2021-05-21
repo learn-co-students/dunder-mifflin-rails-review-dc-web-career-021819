@@ -1,0 +1,11 @@
+<!-- The Dog show page should have their name, breed, age and the list of Dunder Mifflin Employees they are connected to -->
+<h1><%= @dog.name %></h1>
+<h3><%= @dog.breed %> (<%= @dog.age %>)</h3>
+<%= image_tag @dog.get_image %>
+<br>
+<p><%= @dog.name %>'s Owners:</p>
+<ul>
+<% @dog.employees.each do |employee| %>
+  <li><%= link_to employee.name, employee_path(employee) %></li>
+<% end %>
+</ul>
